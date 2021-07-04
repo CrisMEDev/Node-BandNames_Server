@@ -14,19 +14,6 @@
 
 
     <script src="./socket.io/socket.io.js" ></script>
-
-    <script>
-
-        let socket = io();
-
-        socket.on( 'connect', () => {
-            console.log('Conectado al servidor como: ', socket.id);
-        });
-
-        socket.on( 'disconnect', () => {
-            console.log('Desonectado al servidor como: ', socket.id);
-        });
-
-    </script>
+    <script src="./js/index.js" ></script>
 </body>
 </html>

@@ -11,6 +11,17 @@ const socketController = ( socket = new Socket ) => {
 
     });
 
+    // Se escucha el evento mensaje del lado del cliente
+    socket.on( 'mensaje', ( payload ) => {
+
+        const { nombre } = payload;
+
+        console.log(nombre);
+
+        // Emitir el mensaje a todos los clientes conectados menos al mismo que realiza la conexión
+        socket.broadcast.emit( 'mensaje', { mensaje: `${nombre} se ha integrado al server` });
+    });
+
 }
 
 module.exports = {

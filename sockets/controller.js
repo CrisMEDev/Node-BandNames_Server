@@ -1,9 +1,21 @@
 const { Socket } = require("socket.io");
 
+const Bands = require('../models/bands');
+const Band = require("../models/band");
+
+const bands = new Bands();
+
+bands.addBand( new Band( 'Foo fighters' ) );
+bands.addBand( new Band( 'The siege' ) );
+bands.addBand( new Band( 'Smash into pieces' ) );
+bands.addBand( new Band( 'Metallica' ) );
+
 
 const socketController = ( socket = new Socket ) => {
 
     console.log( 'Conectado: ', socket.id );
+
+    socket.emit( 'active-bands', bands.getBands() );
 
     socket.on('disconnect', () => {
 

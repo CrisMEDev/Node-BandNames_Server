@@ -24,3 +24,10 @@ socket.on( 'nuevo-mensaje', ( payload ) => {
     console.log( payload );
 });
 
+
+// Se escuchar el evento nuevo-mensaje desde el server
+socket.on( 'active-bands', ( payload ) => {
+    console.clear();
+    console.table( payload );
+});
+

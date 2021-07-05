@@ -24,4 +24,6 @@ PORT=8080
 
 [socket.io](https://www.npmjs.com/package/socket.io)
 
+[uuid](https://www.npmjs.com/package/uuid)
+
 

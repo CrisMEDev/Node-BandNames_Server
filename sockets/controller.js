@@ -41,6 +41,18 @@ const socketController = ( socket = new Socket ) => {
         socket.broadcast.emit( 'nuevo-mensaje', payload);
     });
 
+    socket.on( 'vote-band', (payload) => {
+
+        bands.voteBand( payload.id );
+
+        // Responder a todos los usuarios menos al que disparó el eventó; si se quiere hacer a todos en
+        // una instruccion en lugar de socket se debe usar el propio io
+        socket.broadcast.emit( 'active-bands', bands.getBands() );
+        // Responder al frontend en la app con la actualización de votos
+        socket.emit( 'active-bands', bands.getBands() );
+
+    });
+
 }
 
 module.exports = {

@@ -19,3 +19,8 @@ socket.on( 'mensaje', ( respuestaServer ) => {
     console.log( mensaje );
 });
 
+// Se escuchar el evento nuevo-mensaje desde el server
+socket.on( 'nuevo-mensaje', ( payload ) => {
+    console.log( payload );
+});
+

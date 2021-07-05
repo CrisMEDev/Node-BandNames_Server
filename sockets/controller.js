@@ -53,6 +53,24 @@ const socketController = ( socket = new Socket ) => {
 
     });
 
+    socket.on( 'add-band', (payload) => {
+
+        bands.addBand( new Band( payload.name ) );
+        
+        socket.broadcast.emit( 'active-bands', bands.getBands() );
+        socket.emit( 'active-bands', bands.getBands() );       
+
+    });
+
+    socket.on( 'delete-band', (payload) => {
+
+        bands.deleteBand( payload.id );
+
+        socket.broadcast.emit( 'active-bands', bands.getBands() );
+        socket.emit( 'active-bands', bands.getBands() ); 
+
+    });
+
 }
 
 module.exports = {

@@ -26,4 +26,6 @@ PORT=8080
 
 [uuid](https://www.npmjs.com/package/uuid)
 
+[Enlace al código de la app](https://github.com/CrisMEDev/Flutter-BandNames_Sockets)
+
 
